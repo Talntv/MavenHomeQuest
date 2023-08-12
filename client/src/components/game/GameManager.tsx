@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Styles } from '../../styles'
 import { clearAllTimeOuts, getFeedbackText } from '../../utils/commonUtils'
 import { SUCCESS, TOO_LATE, TOO_SOON } from '../../Consts'
+import Indicator from '../indicator'
+import FeedbackText from '../feedbackText'
 
 export type MonitorSide = 'Left' | 'Right'
 
@@ -64,10 +65,10 @@ const Game: React.FC<GameProps> = props => {
 
   return (
     <>
-      {isIndicatorVisible ?
-        <div style={{...Styles.circleStyle, right: indicatorPosition === 'Left' ? '75%' : 'auto', left: indicatorPosition === 'Right' ? '75%' : 'auto' }}/>
-        :
-        <h1 style={{...Styles.objectMidScreenStyle, color: feedbackMsg === SUCCESS ? 'green' : 'red'}} >{feedbackMsg}</h1>}
+      {isIndicatorVisible ? 
+        <Indicator position={indicatorPosition} /> :
+        <FeedbackText feedbackMsg={feedbackMsg} />
+      }
     </>
   )
 }

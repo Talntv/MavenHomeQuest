@@ -21,10 +21,15 @@ const updateLeaderboard = async (req: Request, res: Response) => {
     const { playerName, playerScore } = req.body
     let player = await Player.findOne({ "name": playerName })
     if (player) {
+      if (player.score >= playerScore) {
+        res.status(200).json({ message: `No update done, score is lower than ${playerName} record` })
+        return
+      }
       player.score = playerScore
     } else {
         const genderResponse = await axios.get(`${GENDERIZE_API_URL}/?name=${playerName}`)
         const playerGender = genderResponse.data.probability > 0.95 ? genderResponse.data.gender : UNDETERMINED
+        //Random api returns data for random gender for any value not in ['male', 'female']
         const randomUserResponse = await axios.get(`${RANDOM_USER_API_URL}/?gender=${playerGender}`)
         delete randomUserResponse.data.results[0]['gender']
         player = new Player({

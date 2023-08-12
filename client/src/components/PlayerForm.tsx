@@ -16,7 +16,7 @@ const PlayerForm: React.FC<PlayerFormProps> = ({ playerName, setPlayerName, onSt
   }
 
   return (
-    <div style={Styles.objectMidScreenStyle}>
+    <div style={Styles.loginScreenStyle}>
       <TextField
         label="Enter your name"
         value={playerName}

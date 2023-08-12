@@ -10,7 +10,7 @@ class GameServerClient {
             await axios.post('/api/leaderboard', requestBody)
           }
           catch (e) {
-            console.log(e)
+            console.error(e)
           }
     }
 

@@ -22,6 +22,10 @@ const App: React.FC = () => {
   const onStartGame = async (name: string) => {
     setPhase(AppPhase.Game)
     await gameServerClient.updateLeaderboard(name, 0)
+
+    // Uncomment these 2 lines to print leaderboard table to console on game start.
+    // const res = await gameServerClient.getLeaderboard()
+    // console.log(res)
   }
 
   return (

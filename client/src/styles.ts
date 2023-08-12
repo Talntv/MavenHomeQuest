@@ -1,10 +1,15 @@
 export const Styles = {
-    objectMidScreenStyle: {
-        display: 'flex',
-        flexDirection: 'column' as 'column', //This is necesarry to stop TS from complaining
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
+    loginScreenStyle: {
+      display: 'flex',
+      flexDirection: 'column' as 'column', //This is necesarry to stop TS from complaining
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+    },
+    feedbackMessageStyle: {
+      display: 'flex',
+      justifyContent: 'center',
+      transform: 'translateY(70vh)'
     },
     circleStyle: {
       position: 'absolute' as 'absolute',

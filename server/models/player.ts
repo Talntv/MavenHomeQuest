@@ -1,10 +1,20 @@
 import mongoose from 'mongoose'
 
 const playerSchema = new mongoose.Schema({
-  name: String,
-  score: Number,
-  gender: String,
-  additionalInfo: Object,
+  name: {
+    type: String,
+    required: true
+  },
+  score: {
+    type: Number,
+    required: true
+  },
+  gender: {
+    type: String
+  },
+  additionalInfo: {
+    type: Object
+  }
 })
 
 const Player = mongoose.model('Player', playerSchema)
