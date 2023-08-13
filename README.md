@@ -8,7 +8,7 @@ cd ../client && npm install && npm start
 
 Enter your name in the new tab opened in your browser, and start playing.
 
-## To pring leaderboard
+## To print leaderboard
 You can uncomment lines 27-28 in /client/src/app.tsx to make the leaderboard print to console on game start.
 
 ### Assumptions:
